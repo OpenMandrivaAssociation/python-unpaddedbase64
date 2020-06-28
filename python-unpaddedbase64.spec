@@ -4,52 +4,44 @@
 
 Name:           python-%{modname}
 Version:        1.1.0
-Release:        14%{?dist}
+Release:        1
 Summary:        Encode and decode Base64 without "=" padding
 
 License:        ASL 2.0
 URL:            https://github.com/matrix-org/python-unpaddedbase64
-Source0:        %{url}/archive/v%{version}/%{modname}-%{version}.tar.gz
+Source0:        https://github.com/matrix-org/python-unpaddedbase64/archive/v%{version}/%{modname}-%{version}.tar.gz
+
+%{?python_provide:%python_provide python3-%{modname}}
+BuildRequires:  pkgconfig(python)
+BuildRequires:  python3dist(setuptools)
+%if %{with check}
+BuildRequires:  python3dist(pytest)
+%endif
 
 BuildArch:      noarch
 
-%global _description \
+%description
 RFC 4648 specifies that Base64 should be padded to a multiple of 4 bytes\
 using "=" characters. However this conveys no benefit so many protocols\
 choose to use Base64 without the "=" padding.
 
-%description %{_description}
-
-%package -n python3-%{modname}
-Summary:        %{summary}
-%{?python_provide:%python_provide python3-%{modname}}
-BuildRequires:  python3-devel
-BuildRequires:  python3-setuptools
-%if %{with check}
-BuildRequires:  python3-pytest
-%endif
-
-%description -n python3-%{modname} %{_description}
-
-Python 3 version.
-
 %prep
-%autosetup
+%autosetup -p1
 
 %build
-%py3_build
+%py_build
 
 %install
-%py3_install
+%py_install
 
 %if %{with check}
 %check
-py.test-%{python3_version} -v
+py.test-%{python_version} -v
 %endif
 
-%files -n python3-%{modname}
+%files
 %license LICENSE
 %doc README.rst
-%{python3_sitelib}/%{modname}-*.egg-info/
-%{python3_sitelib}/%{modname}.py
-%{python3_sitelib}/__pycache__/%{modname}.*
+%{python_sitelib}/%{modname}-*.egg-info/
+%{python_sitelib}/%{modname}.py
+%{python_sitelib}/__pycache__/%{modname}.*
