@@ -9,7 +9,7 @@ Summary:        Encode and decode Base64 without "=" padding
 
 License:        ASL 2.0
 URL:            https://github.com/matrix-org/python-unpaddedbase64
-Source0:        https://github.com/matrix-org/python-unpaddedbase64/archive/v%{version}/%{modname}-%{version}.tar.gz
+Source0:        https://github.com/matrix-org/python-unpaddedbase64/archive/v%{version}/%{name}-%{version}.tar.gz
 
 %{?python_provide:%python_provide python3-%{modname}}
 BuildRequires:  pkgconfig(python)
