@@ -4,7 +4,7 @@
 
 Name:           python-%{module}
 Version:        2.1.0
-Release:        2
+Release:        3
 Summary:        Encode and decode Base64 without "=" padding
 
 License:        ASL 2.0
