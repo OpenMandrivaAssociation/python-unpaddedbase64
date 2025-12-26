@@ -14,6 +14,7 @@ Source0:        https://files.pythonhosted.org/packages/source/u/%{module}/%{mod
 BuildRequires:  pkgconfig(python)
 BuildRequires:  python%{pyver}dist(setuptools)
 BuildRequires:  python%{pyver}dist(pip)
+BuildRequires:  python%{pyver}dist(poetry-core)
 %if %{with check}
 BuildRequires:  python%{pyver}dist(pytest)
 %endif
