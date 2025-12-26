@@ -13,6 +13,7 @@ Source0:        https://files.pythonhosted.org/packages/source/u/%{module}/%{mod
 
 BuildRequires:  pkgconfig(python)
 BuildRequires:  python%{pyver}dist(setuptools)
+BuildRequires:  python%{pyver}dist(pip)
 %if %{with check}
 BuildRequires:  python%{pyver}dist(pytest)
 %endif
@@ -28,7 +29,7 @@ choose to use Base64 without the "=" padding.
 %license LICENSE
 %doc README.rst
 %{python_sitelib}/%{module}/
-%{python_sitelib}/%{module}-*.egg-info/
+%{python_sitelib}/%{module}-%{version}.dist-info/
 
 #----------------------------------------------------------------------------
 
