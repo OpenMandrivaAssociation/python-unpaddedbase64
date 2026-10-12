@@ -4,10 +4,11 @@
 
 Name:           python-%{module}
 Version:        2.1.0
-Release:        4
+Release:        5
 Summary:        Encode and decode Base64 without "=" padding
 
 License:        ASL 2.0
+Group:        Development/Python
 URL:            https://github.com/matrix-org/python-unpaddedbase64
 Source0:        https://files.pythonhosted.org/packages/source/u/%{module}/%{module}-%{version}.tar.gz
 
